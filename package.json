@@ -63,7 +63,7 @@
     "analyze": "cross-env ANALYZE=true npm run build",
     "api":"nodemon -x node -r @std/esm ./db/run.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "now -e LETTERS_FIREBASE_ADMIN_KEY=${LETTERS_FIREBASE_ADMIN_KEY} -d",
     "start": "cross-env NODE_ENV=production pm2 start ./index.js --no-daemon",
     "build:app":"cross-env NODE_ENV=production webpack -p --progress --config ./build/webpack.config.prod.js",
     "build": "cross-env NODE_ENV=production npm-run-all react-scripts build:app db:seed",
